@@ -1,0 +1,77 @@
+
+四舍五入保留整数
+var a = 9.999900;
+console.log(a.toFixed());
+//10
+
+四舍五入保留两位小数：
+var a = 9.39693;
+console.log(a.toFixed(2));
+//9.40
+
+四舍五入保留两位小数：
+function num2decimals(num) {	
+   return (Math.round(num * 100) / 100.00).toFixed(2);
+}
+console.log(num2decimals(9.39693));
+//9.40
+
+四舍五入保留两位小数并加上%号
+function num2decimals(num) {
+    return (Math.round(num * 10000) / 100.00).toFixed(2) + "%";
+}
+console.log(num2decimals(9.39698));
+//939.70%
+
+
+保留两位小数：
+var a = 9.39693;
+a = a.toString();
+result = a.substr(0, a.indexOf(".")+3);
+console.log(result);
+//9.39
+
+强制保留两位小数，不够的末尾补0
+function toDecimal2(x) {         
+    var f = parseFloat(x);    
+    if (isNaN(f)) {            
+	 return false;       
+    }      
+    var f = Math.round(x*100)/100;      
+    var s = f.toString();          
+    var rs = s.indexOf('.');        
+    if (rs < 0) { 
+      rs = s.length;    
+      s += '.';     
+    }    
+    while (s.length <= rs + 2) {    
+       s += '0';       
+    }      
+    return s;    
+   }
+console.log(toDecimal2(9.00000));
+//9.00
+
+绝对值
+function numABS(num){
+	var result = (Math.round(num * 100) / 100.00).toFixed(2);
+	var resultval = Math.abs(result);
+	return resultval;
+}
+console.log(numABS(-9.89999));
+// 9.9
+
+
+数字加上千分符
+function toThousands(num) {
+    var num = (num || 0).toString(), 
+	result = '';
+    while (num.length > 3) {
+        result = ',' + num.slice(-3) + result;
+        num = num.slice(0, num.length - 3);
+    }
+    if (num) { result = num + result; }
+    return result;
+}
+console.log(toThousands(24298420));
+// 24,298,420
