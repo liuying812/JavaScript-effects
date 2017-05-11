@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-6">
+			<ul class="nav">
+				<li id="reaLi"><a onclick="showResearch()" href="javascript:;">研究方法</a></li>
+				<li id="indLi"><a onclick="showIndicatorsys()" href="javascript:;">指标体系</a></li>
+			</ul>	
+		</div>
+
+		<!-- 研究方法弹窗 -->
+		<div id="research_tip" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:5;display:none;">
+			<div style="width:100%;height:100%;opacity:0.8;background-color:rgba(0,0,0,0.8)"></div>
+		</div>
+		<div id="re_tip_png" class="tip" style="position:fixed;top:30%;left:100%;margin-left:-230px;margin-top:-155px;display:none;z-index:99;">
+				<a onclick="hideResearch();" href="javascript:;" style="position:absolute;top:-15px;right:-15px;">
+					<img src="img/tip_close.png"/>
+				</a>
+				<img src="img/pop_research.png"/>
+		</div> 
+		
+		<!-- 指标体系弹窗 -->
+		<div id="indicatorsys_tip" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:5;display:none;">
+			<div style="width:100%;height:100%;opacity:0.8;background-color:rgba(0,0,0,0.8)"></div>
+		</div>
+	   <div id="in_tip_png" class="tip" style="position:fixed;top:31%;left:100%;margin-left:-230px;margin-top:-185px;display:none;z-index:99;">
+			<a onclick="hideIndicatorsys();" href="javascript:;" style="position:absolute;top:-15px;right:-15px;">
+				<img src="img/tip_close.png"/>
+			</a>
+			<img  src="img/pop_indicatorsys.png"/>
+		</div> 
+
+	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/patternPopup.js"></script>
+
+    <script>
+    	$(document).ready(function(){
+    		var trigger = window.location.search.substring(1);
+			if(trigger == 'research') {
+				showResearch();
+			}else if(trigger == 'indicatorsys') {
+				showIndicatorsys();
+			}
+    	});
+    </script>
+</body>
+</html>
