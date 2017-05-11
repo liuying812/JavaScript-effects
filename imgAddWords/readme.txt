@@ -1,0 +1,1 @@
+使用position: relative; 把图片和文字包子同一个div中实现，文字在图片的上方
